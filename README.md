@@ -1,0 +1,2 @@
+# imath
+Interactive mathematical computing.
