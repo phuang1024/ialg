@@ -17,6 +17,8 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <string>
+
 namespace IMath {
 namespace Frontend {
 
@@ -30,6 +32,14 @@ namespace Color {
     constexpr char GREEN_DARK[] = "\033[38;2;80;140;100m";
     constexpr char GREEN_LIGHT[] = "\033[38;2;120;180;140m";
 }
+
+/**
+ * Get input from stdin and save to str.
+ * n is the input number.
+ * For example, if n is 1, it will prompt
+ * In [1]:
+ */
+bool input(std::string& str, const int n);
 
 }  // namespace Frontend
 }  // namespace IMath

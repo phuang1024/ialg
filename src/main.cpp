@@ -18,6 +18,7 @@
 //
 
 #include <iostream>
+#include <string>
 #include "utils.hpp"
 #include "frontend.hpp"
 
@@ -29,9 +30,28 @@ void print_info() {
 }
 
 
+void loop() {
+    int n = 0;
+
+    while (true) {
+        std::cout << std::endl;
+
+        std::string str;
+        if (!IMath::Frontend::input(str, n))
+            break;
+
+        if (str.size() > 0) {
+            std::cout << str << std::endl;
+
+            n++;
+        }
+    }
+
+    std::cout << std::endl;
+}
+
+
 int main() {
-    std::cerr << IMath::Frontend::Color::UNDERLINE;
-    std::cerr << IMath::Frontend::Color::GREEN_LIGHT;
     print_info();
-    std::cerr << IMath::Frontend::Color::RESET;
+    loop();
 }

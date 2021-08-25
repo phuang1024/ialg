@@ -17,10 +17,21 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <iostream>
+#include <string>
+#include "frontend.hpp"
+
 namespace IMath {
 namespace Frontend {
 
+bool input(std::string& str, const int n) {
+    std::cout << Color::GREEN_DARK << "In [";
+    std::cout << Color::GREEN_LIGHT << n;
+    std::cout << Color::GREEN_DARK << "]: ";
+    std::cout << Color::RESET << std::flush;
 
+    return (bool)getline(std::cin, str);
+}
 
 }  // namespace Frontend
 }  // namespace IMath
