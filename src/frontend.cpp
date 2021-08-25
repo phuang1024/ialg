@@ -17,21 +17,10 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "utils.hpp"
-#include "frontend.hpp"
+namespace IMath {
+namespace Frontend {
 
 
-void print_info() {
-    std::cout << "IMath " << VERSION << "\n";
-    std::cout << "Built " << __DATE__ << ", " << __TIME__ << "\n";
-    std::cout << std::flush;
-}
 
-
-int main() {
-    std::cerr << IMath::Frontend::Color::UNDERLINE;
-    std::cerr << IMath::Frontend::Color::GREEN_LIGHT;
-    print_info();
-    std::cerr << IMath::Frontend::Color::RESET;
-}
+}  // namespace Frontend
+}  // namespace IMath

@@ -17,21 +17,9 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
-#include <iostream>
-#include "utils.hpp"
-#include "frontend.hpp"
+#define  VERSION  "0.0.1"
 
-
-void print_info() {
-    std::cout << "IMath " << VERSION << "\n";
-    std::cout << "Built " << __DATE__ << ", " << __TIME__ << "\n";
-    std::cout << std::flush;
-}
-
-
-int main() {
-    std::cerr << IMath::Frontend::Color::UNDERLINE;
-    std::cerr << IMath::Frontend::Color::GREEN_LIGHT;
-    print_info();
-    std::cerr << IMath::Frontend::Color::RESET;
-}
+typedef  unsigned char  UCH;
+typedef  unsigned int  UINT;
+typedef  long long  LL;
+typedef  unsigned long long  ULL;

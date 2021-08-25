@@ -19,11 +19,11 @@
 
 CXX = g++
 CXXFLAGS = -Wall -O3
-CXXFILES = main.o
+CXXFILES = main.o frontend.o
 
 .PHONY: all compile clean
 
-all: compile
+all: compile clean
 
 compile: $(CXXFILES)
 	$(CXX) $(CXXFILES) -o imath
