@@ -19,7 +19,7 @@
 
 CXX = g++
 CXXFLAGS = -Wall -O3
-CXXFILES = main.o frontend.o
+CXXFILES = main.o frontend.o lexer.o
 
 .PHONY: all compile clean
 
