@@ -9,3 +9,5 @@ Inspired by IPython.
    :maxdepth: 1
    :hidden:
    :caption: Contents:
+
+   lang
