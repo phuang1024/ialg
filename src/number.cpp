@@ -1,0 +1,41 @@
+//
+//  IMath
+//  Interactive mathematical computing.
+//  Copyright Patrick Huang 2021
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+
+#include <cstring>
+#include "number.hpp"
+
+namespace IMath {
+namespace Number {
+
+Integer::~Integer() {
+}
+
+Integer::Integer() {
+    _bytes.resize(1);
+    _bytes[0] = 0;
+}
+
+void Integer::copy(Integer* dest) {
+    const int size = _bytes.size();
+    dest->_bytes.resize(size);
+    memcpy(&dest->_bytes[0], &_bytes[0], sizeof(UCH) * size);
+}
+
+}  // namespace Number
+}  // namespace IMath
