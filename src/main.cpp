@@ -26,24 +26,24 @@
 void print_info() {
     std::cout << "IMath " << VERSION << "\n";
     std::cout << "Built " << __DATE__ << ", " << __TIME__ << "\n";
-    std::cout << std::flush;
+    std::cout << std::endl;
 }
 
 
 void loop() {
-    int n = 0;
+    int input_num = 0;
 
     while (true) {
         std::cout << std::endl;
 
         std::string str;
-        if (!IMath::Frontend::input(str, n))
+        if (!IMath::Frontend::input(str, input_num))
             break;
 
         if (str.size() > 0) {
             std::cout << str << std::endl;
 
-            n++;
+            input_num++;
         }
     }
 

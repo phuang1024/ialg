@@ -21,14 +21,16 @@
 #include <string>
 #include "frontend.hpp"
 
+using namespace IMath::Frontend::Color;
+
 namespace IMath {
 namespace Frontend {
 
 bool input(std::string& str, const int n) {
-    std::cout << Color::GREEN_DARK << "In [";
-    std::cout << Color::GREEN_LIGHT << n;
-    std::cout << Color::GREEN_DARK << "]: ";
-    std::cout << Color::RESET << std::flush;
+    std::cout << RESET << GREEN_DARK << "In [";
+    std::cout << RESET << BOLD << GREEN_LIGHT << n;
+    std::cout << RESET << GREEN_DARK << "]: ";
+    std::cout << RESET << std::flush;
 
     return (bool)getline(std::cin, str);
 }

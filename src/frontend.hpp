@@ -29,8 +29,8 @@ namespace Color {
     constexpr char ITALIC[] = "\033[0;3m";
     constexpr char UNDERLINE[] = "\033[0;4m";
 
-    constexpr char GREEN_DARK[] = "\033[38;2;80;140;100m";
-    constexpr char GREEN_LIGHT[] = "\033[38;2;120;180;140m";
+    constexpr char GREEN_DARK[] = "\033[38;2;40;140;60m";
+    constexpr char GREEN_LIGHT[] = "\033[38;2;120;220;140m";
 }
 
 /**
