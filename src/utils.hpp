@@ -21,5 +21,6 @@
 
 typedef  unsigned char  UCH;
 typedef  unsigned int  UINT;
+typedef  unsigned short  USH;
 typedef  long long  LL;
 typedef  unsigned long long  ULL;

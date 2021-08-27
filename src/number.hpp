@@ -18,6 +18,7 @@
 //
 
 #include <vector>
+#include <string>
 #include "utils.hpp"
 
 namespace IMath {
@@ -25,18 +26,58 @@ namespace Number {
 
 /**
  * Unbounded integer.
+ * Most modifier methods (add, subtract) modify the object in place.
+ * To create a new object, declare one and use the copy method.
  */
 class Integer {
 public:
     ~Integer();
     Integer();
+    Integer(int n);
+    Integer(LL n);
+    Integer(ULL n);
 
     /**
      * Deepcopy this to destination.
+     * @param dest destination integer pointer.
      */
     void copy(Integer* dest);
 
+    /**
+     * Get the base 10 string representation.
+     * @param dest destination std::string pointer.
+     */
+    void base10(std::string* dest);
+
+    /**
+     * Get a pointer to the first element of the internal byte array.
+     */
+    UCH* bytes();
+
+    /**
+     * Number of bytes in the byte array.
+     */
+    int size();
+
+    /**
+     * Set byte array to data from data pointer for size bytes.
+     */
+    void set(const void* data, const int size);
+
+    /**
+     * Add a Number to this object.
+     */
+    void add(Integer* num);
+
 private:
+    /**
+     * Resize internal byte array to at least this size.
+     * Fills new bytes with 0.
+     * Truncates existing bytes if shrinking.
+     */
+    void _resize(const int size);
+
+    bool _sign;
     std::vector<UCH> _bytes;
 };
 
