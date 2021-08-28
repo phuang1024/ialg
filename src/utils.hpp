@@ -19,8 +19,25 @@
 
 #define  VERSION  "0.0.1"
 
+#include <vector>
+
 typedef  unsigned char  UCH;
 typedef  unsigned int  UINT;
 typedef  unsigned short  USH;
 typedef  long long  LL;
 typedef  unsigned long long  ULL;
+
+/**
+ * Check if a target is inside a vector.
+ * This uses a vector to prevent size mismatch bugs.
+ * @param elements vector of elements.
+ * @param target target element.
+ */
+template<class T>
+bool contains(const std::vector<T>& elements, const T& target) {
+    for (int i = 0; i < (int)elements.size(); i++) {
+        if (elements[i] == target)
+            return true;
+    }
+    return false;
+}

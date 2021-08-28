@@ -21,6 +21,7 @@
 #include <string>
 #include <sys/ioctl.h>
 #include "frontend.hpp"
+#include "lexer.hpp"
 
 using namespace IMath::Frontend::Color;
 
@@ -89,7 +90,7 @@ bool input(std::string& str, const int n) {
         std::cout << RESET;
 
         // Print current input.
-        std::cout << str << std::flush;
+        Lexer::dump(std::cout, str);
 
         // Move cursor to correct pos.
         // Plus 8 is for the prompt.
@@ -124,7 +125,7 @@ bool input(std::string& str, const int n) {
                 str.erase(str.begin()+pos);
             }
         } else if (ansi && ch == Chars::DELETE) {
-            if (pos < str.size())
+            if (pos < (int)str.size())
                 str.erase(str.begin()+pos);
         }
 

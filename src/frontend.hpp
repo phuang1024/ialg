@@ -33,6 +33,8 @@ namespace Color {
 
     constexpr char GREEN_DARK[] = "\033[38;2;40;140;60m";
     constexpr char GREEN_LIGHT[] = "\033[38;2;120;220;140m";
+
+    constexpr char STRING[] = "\033[38;2;169;93;2m";
 }
 
 namespace Chars {

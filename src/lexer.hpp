@@ -17,10 +17,20 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <iostream>
+#include <string>
+#include <vector>
+
 namespace IMath {
 namespace Lexer {
 
+const std::vector<char> STRING = {'\"'};
+const std::vector<char> BACKSLASH = {'\"', '\'', '\\', 'n', 'b'};   // backslash escapes
 
+/**
+ * Dump colored text to out.
+ */
+void dump(std::ostream& out, std::string str);
 
 }  // namespace Lexer
 }  // namespace IMath

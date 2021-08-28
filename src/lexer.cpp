@@ -17,10 +17,46 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#include <iostream>
+#include <string>
+#include "frontend.hpp"
+#include "lexer.hpp"
+#include "utils.hpp"
+
+using namespace IMath::Frontend;
+
 namespace IMath {
 namespace Lexer {
 
+void dump(std::ostream& out, std::string str) {
+    const int size = str.size();
 
+    bool in_string = false;
+    int i = 0;
+
+    while (i < size) {
+        const char ch = str[i];
+
+        if (contains<char>(STRING, ch)) {
+            in_string = !in_string;
+            std::cout << Color::STRING << ch;
+        // } else if (in_string && ch == '\\') {
+        //     std::cout << Color::BOLD << Color::STRING;
+        //     std::cout << ch;
+        //     if (i < size-1 && contains<char>(BACKSLASH, str[i+1])) {
+        //         std::cout << str[i+1];
+        //         i++;
+        //     }
+        } else {
+            std::cout << (in_string ? Color::STRING : Color::RESET);
+            std::cout << ch;
+        }
+
+        i++;
+    }
+
+    std::cout << std::flush;
+}
 
 }  // namespace Lexer
 }  // namespace IMath
