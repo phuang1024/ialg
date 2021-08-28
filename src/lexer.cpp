@@ -35,18 +35,20 @@ void dump(std::ostream& out, std::string str) {
     int i = 0;
 
     while (i < size) {
+        std::cout << Color::RESET;
         const char ch = str[i];
 
         if (contains<char>(STRING, ch)) {
             in_string = !in_string;
             std::cout << Color::STRING << ch;
-        // } else if (in_string && ch == '\\') {
-        //     std::cout << Color::BOLD << Color::STRING;
-        //     std::cout << ch;
-        //     if (i < size-1 && contains<char>(BACKSLASH, str[i+1])) {
-        //         std::cout << str[i+1];
-        //         i++;
-        //     }
+        } else if (in_string && ch == '\\') {
+            if (i < size-1 && contains<char>(BACKSLASH, str[i+1])) {
+                std::cout << Color::BOLD << Color::STRING;
+                std::cout << ch << str[i+1];
+                i++;
+            } else {
+                std::cout << Color::STRING << ch;
+            }
         } else {
             std::cout << (in_string ? Color::STRING : Color::RESET);
             std::cout << ch;
