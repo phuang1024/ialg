@@ -18,6 +18,8 @@
 //
 
 #include <string>
+#include <termios.h>
+#include <unistd.h>
 
 namespace IMath {
 namespace Frontend {
@@ -32,6 +34,26 @@ namespace Color {
     constexpr char GREEN_DARK[] = "\033[38;2;40;140;60m";
     constexpr char GREEN_LIGHT[] = "\033[38;2;120;220;140m";
 }
+
+/**
+ * Get window width.
+ */
+int get_winw();
+
+/**
+ * Get window height.
+ */
+int get_winh();
+
+/**
+ * Clear the current terminal line.
+ */
+void clearline();
+
+/**
+ * Read character from stdin without waiting for enter.
+ */
+char getch();
 
 /**
  * Get input from stdin and save to str.
