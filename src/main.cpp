@@ -33,7 +33,7 @@ void print_info() {
 void loop() {
     // while (true) {
     //     char a = IMath::Frontend::getch();
-    //     std::cout << "You typed: " << a << ", " << +a << std::endl;
+    //     std::cout << "You typed: " << +a << std::endl;
     // }
 
     int input_num = 0;

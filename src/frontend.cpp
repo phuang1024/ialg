@@ -71,31 +71,80 @@ char getch() {
 }
 
 bool input(std::string& str, const int n) {
+    // TODO up and down history
+
     str.resize(0);
     str.reserve(100);
 
-    bool ctrl_d = false;
+    bool ctrl_d = false;   // whether the user exited with ctrl d
+    int pos = 0;   // going to insert character at this position.
+
     while (true) {
         clearline();
 
+        // Print prompt.
         std::cout << RESET << GREEN_DARK << "In [";
         std::cout << RESET << BOLD << GREEN_LIGHT << n;
         std::cout << RESET << GREEN_DARK << "]: ";
         std::cout << RESET;
 
+        // Print current input.
         std::cout << str << std::flush;
 
-        const char ch = getch();
-        if (ch == 10) {
+        // Move cursor to correct pos.
+        // Plus 8 is for the prompt.
+        std::cout << "\r";
+        for (int i = 0; i < pos+8; i++)
+            std::cout << "\033[1C";
+        std::cout << std::flush;
+
+        bool ansi = false;
+        char ch = getch();
+        if (ch == Chars::ANSI) {
+            getch();
+            ch = getch();
+            if (ch == 51) ch = getch();   // edge case for delete
+            ansi = true;
+        }
+
+        if (ch == Chars::ENTER) {
             break;
-        } else if (ch == 4) {
-            ctrl_d = true;
-            break;
-        } else if (ch == 127) {
-            if (str.size() > 0)
-                str.resize(str.size()-1);
-        } else {
-            str.push_back(ch);
+        } else if (ch == Chars::CTRLD) {
+            if (str.size() == 0) {
+                ctrl_d = true;
+                break;
+            }
+        } else if (ch == Chars::CTRLL) {
+            std::cout << "\033[2J" << "\033[0;0H" << std::flush;
+        }
+
+        else if (ch == Chars::BACKSPACE) {
+            if (pos > 0) {
+                pos--;
+                str.erase(str.begin()+pos);
+            }
+        } else if (ansi && ch == Chars::DELETE) {
+            if (pos < str.size())
+                str.erase(str.begin()+pos);
+        }
+
+        else if (ansi && ch == Chars::UP) {
+        } else if (ansi && ch == Chars::DOWN) {
+        } else if (ansi && ch == Chars::RIGHT) {
+            if (pos < (int)str.size())
+                pos++;
+        } else if (ansi && ch == Chars::LEFT) {
+            if (pos > 0)
+                pos--;
+        } else if (ansi && ch == Chars::HOME) {
+            pos = 0;
+        } else if (ansi && ch == Chars::END) {
+            pos = str.size();
+        }
+
+        else {
+            str.insert(str.begin()+pos, ch);
+            pos++;
         }
     }
 

@@ -35,6 +35,24 @@ namespace Color {
     constexpr char GREEN_LIGHT[] = "\033[38;2;120;220;140m";
 }
 
+namespace Chars {
+    constexpr char ANSI = 27;
+
+    constexpr char CTRLD = 4;
+    constexpr char CTRLL = 12;
+
+    constexpr char UP = 65;
+    constexpr char DOWN = 66;
+    constexpr char RIGHT = 67;
+    constexpr char LEFT = 68;
+    constexpr char HOME = 72;
+    constexpr char END = 70;
+
+    constexpr char ENTER = 10;
+    constexpr char BACKSPACE = 127;
+    constexpr char DELETE = 126;
+}
+
 /**
  * Get window width.
  */
