@@ -27,6 +27,20 @@ void print_info() {
     std::cout << "IMath " << VERSION << "\n";
     std::cout << "Built " << __DATE__ << ", " << __TIME__ << "\n";
     std::cout << std::endl;
+
+    #if defined(_WIN32) || defined(_WIN64)
+        #warning "You are using an OS (Windows) which contains malware."
+        #warning "See https://www.gnu.org/proprietary/malware-microsoft.html"
+        std::cout << "WARNING: You are using an OS (Windows) which contains malware." << std::endl;
+        std::cout << "See https://www.gnu.org/proprietary/malware-microsoft.html" << std::endl;
+    #endif
+
+    #if defined(__APPLE__) || defined(__MACH__)
+        #warning "You are using an OS (MacOS) which contains malware."
+        #warning "See https://www.gnu.org/proprietary/malware-apple.html"
+        std::cout << "WARNING: You are using an OS (MacOS) which contains malware." << std::endl;
+        std::cout << "See https://www.gnu.org/proprietary/malware-apple.html" << std::endl;
+    #endif
 }
 
 
