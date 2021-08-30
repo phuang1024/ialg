@@ -43,13 +43,13 @@ public:
      * Deepcopy this to destination.
      * @param dest destination integer pointer.
      */
-    void copy(Integer* dest);
+    void copy(Integer& dest);
 
     /**
      * Get the base 10 string representation.
      * @param dest destination std::string pointer.
      */
-    void base10(std::string* dest);
+    void base10(std::string& dest);
 
     /**
      * Get a pointer to the first element of the internal byte array.
@@ -69,7 +69,7 @@ public:
     /**
      * Add a Number to this object.
      */
-    void add(Integer* num);
+    void add(Integer& num);
 
 private:
     /**

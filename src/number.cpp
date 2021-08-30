@@ -19,6 +19,7 @@
 
 #include <algorithm>
 #include <cstring>
+#include <iostream>
 #include "number.hpp"
 
 namespace IAlg {
@@ -44,19 +45,19 @@ Integer::Integer(ULL n) {
     set(&n, sizeof(n));
 }
 
-void Integer::copy(Integer* dest) {
-    dest->_sign = _sign;
+void Integer::copy(Integer& dest) {
+    dest._sign = _sign;
 
     const int size = _bytes.size();
-    dest->_bytes.resize(size);
-    memcpy(&dest->_bytes[0], &_bytes[0], sizeof(UCH) * size);
+    dest._bytes.resize(size);
+    memcpy(&dest._bytes[0], &_bytes[0], sizeof(UCH) * size);
 }
 
-void Integer::base10(std::string* dest) {
+void Integer::base10(std::string& dest) {
     Integer copied;
-    copy(&copied);
+    copy(copied);
 
-    dest->resize(0);
+    dest.resize(0);
 }
 
 UCH* Integer::bytes() {
@@ -72,15 +73,17 @@ void Integer::set(const void* data, const int size) {
     memcpy(&_bytes[0], data, size);
 }
 
-void Integer::add(Integer* num) {
+void Integer::add(Integer& num) {
+    const int other_size = num._bytes.size();
     const int curr_size = _bytes.size();
-    const int new_size = std::max((int)num->_bytes.size(), curr_size);
+    const int new_size = std::max(other_size, curr_size) + 1;
     if (new_size > curr_size)
-        _resize(new_size+1);
+        _resize(new_size);
 
     int remain = 0;
-    for (int i = 0; i < new_size; i++) {
-        const int sum = num->_bytes[i] + _bytes[i] + remain;
+    for (int i = 0; i < new_size-1; i++) {
+        const UCH other_byte = (i < other_size) ? num._bytes[i] : 0;
+        const int sum = other_byte + _bytes[i] + remain;
         _bytes[i] = sum & 255;
         remain = sum >> 8;
     }

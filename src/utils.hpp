@@ -17,6 +17,8 @@
 //  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //
 
+#pragma once
+
 #define  VERSION  "0.0.1"
 
 #include <vector>
