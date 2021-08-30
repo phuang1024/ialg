@@ -1,5 +1,5 @@
 # IAlg
 
-Interactive mathematical computing.
+Interactive mathematical algorithms.
 
 Inspired by IPython
