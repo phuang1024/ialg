@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //

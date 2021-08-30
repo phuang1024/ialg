@@ -1,5 +1,5 @@
 #
-#  IMath
+#  IAlg
 #  Interactive mathematical computing.
 #  Copyright Patrick Huang 2021
 #
@@ -26,7 +26,7 @@ CXXFILES = main.o number.o frontend.o lexer.o
 all: compile clean
 
 compile: $(CXXFILES)
-	$(CXX) $(CXXFILES) -o imath
+	$(CXX) $(CXXFILES) -o ialg
 
 clean:
 	rm *.o

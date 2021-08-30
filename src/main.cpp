@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -24,7 +24,7 @@
 
 
 void print_info() {
-    std::cout << "IMath " << VERSION << "\n";
+    std::cout << "IAlg " << VERSION << "\n";
     std::cout << "Built " << __DATE__ << ", " << __TIME__ << "\n";
     std::cout << std::endl;
 
@@ -46,7 +46,7 @@ void print_info() {
 
 void loop() {
     // while (true) {
-    //     char a = IMath::Frontend::getch();
+    //     char a = IAlg::Frontend::getch();
     //     std::cout << "You typed: " << +a << std::endl;
     // }
 
@@ -56,7 +56,7 @@ void loop() {
         std::cout << std::endl;
 
         std::string str;
-        if (!IMath::Frontend::input(str, input_num))
+        if (!IAlg::Frontend::input(str, input_num))
             break;
 
         if (str.size() > 0) {

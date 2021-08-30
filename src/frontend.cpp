@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -23,9 +23,9 @@
 #include "frontend.hpp"
 #include "lexer.hpp"
 
-using namespace IMath::Frontend::Color;
+using namespace IAlg::Frontend::Color;
 
-namespace IMath {
+namespace IAlg {
 namespace Frontend {
 
 int get_winw() {
@@ -154,4 +154,4 @@ bool input(std::string& str, const int n) {
 }
 
 }  // namespace Frontend
-}  // namespace IMath
+}  // namespace IAlg

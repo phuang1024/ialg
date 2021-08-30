@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -23,7 +23,7 @@
 #include <termios.h>
 #include <unistd.h>
 
-namespace IMath {
+namespace IAlg {
 namespace Frontend {
 
 namespace Color {
@@ -86,4 +86,4 @@ char getch();
 bool input(std::string& str, const int n);
 
 }  // namespace Frontend
-}  // namespace IMath
+}  // namespace IAlg

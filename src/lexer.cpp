@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -23,9 +23,9 @@
 #include "lexer.hpp"
 #include "utils.hpp"
 
-using namespace IMath::Frontend;
+using namespace IAlg::Frontend;
 
-namespace IMath {
+namespace IAlg {
 namespace Lexer {
 
 void dump(std::ostream& out, std::string str) {
@@ -61,4 +61,4 @@ void dump(std::ostream& out, std::string str) {
 }
 
 }  // namespace Lexer
-}  // namespace IMath
+}  // namespace IAlg

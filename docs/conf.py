@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'IMath'
+project = 'IAlg'
 copyright = '2021, Patrick Huang'
 author = 'Patrick Huang'
 

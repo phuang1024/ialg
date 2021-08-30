@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -21,7 +21,7 @@
 #include <cstring>
 #include "number.hpp"
 
-namespace IMath {
+namespace IAlg {
 namespace Number {
 
 Integer::~Integer() {
@@ -98,4 +98,4 @@ void Integer::_resize(const int size) {
 }
 
 }  // namespace Number
-}  // namespace IMath
+}  // namespace IAlg

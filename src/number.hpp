@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -23,7 +23,7 @@
 #include <string>
 #include "utils.hpp"
 
-namespace IMath {
+namespace IAlg {
 namespace Number {
 
 /**
@@ -84,4 +84,4 @@ private:
 };
 
 }  // namespace Number
-}  // namespace IMath
+}  // namespace IAlg

@@ -1,5 +1,5 @@
 //
-//  IMath
+//  IAlg
 //  Interactive mathematical computing.
 //  Copyright Patrick Huang 2021
 //
@@ -23,7 +23,7 @@
 #include <string>
 #include <vector>
 
-namespace IMath {
+namespace IAlg {
 namespace Lexer {
 
 const std::vector<char> STRING = {'\"'};
@@ -35,4 +35,4 @@ const std::vector<char> BACKSLASH = {'\"', '\'', '\\', 'n', 'b'};   // backslash
 void dump(std::ostream& out, std::string str);
 
 }  // namespace Lexer
-}  // namespace IMath
+}  // namespace IAlg

@@ -3,6 +3,6 @@
 *.o
 *.so
 
-imath
+ialg
 
 /docs/_build
