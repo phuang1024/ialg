@@ -73,15 +73,6 @@ void loop() {
 // #include "number.hpp"
 // using IAlg::Number::Integer;
 
-// void int_test() {
-//     Integer x(18446744073709551615ULL);
-//     Integer y(0);
-//     printint(x);
-//     printint(y);
-//     x.add(y);
-//     printint(x);
-// }
-
 // void printint(Integer& num) {
 //     std::cout << "size: " << num.size() << std::endl;
 //     std::cout << "bytes: ";
@@ -90,8 +81,21 @@ void loop() {
 //     std::cout << std::endl;
 // }
 
+// void int_test() {
+//     Integer x(18446744073709551615ULL);
+//     Integer y(0);
+//     printint(x);
+//     printint(y);
+//     x.add(y);
+//     printint(x);
+//     x.shrink();
+//     printint(x);
+// }
+
 
 int main() {
+    // int_test();return 0;
+
     print_info();
     loop();
 }

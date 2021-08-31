@@ -22,6 +22,29 @@
 #include <iostream>
 #include "number.hpp"
 
+/**
+ * Add two base10 vector chars and store result in first.
+ * Used by Integer::base10
+ */
+void add_base10(std::vector<char>& v1, std::vector<char>& v2) {
+    const int other_size = v2.size();
+    const int curr_size = v1.size();
+    const int new_size = std::max(other_size, curr_size) + 1;
+    if (new_size > curr_size)
+        v1.resize(new_size, 0);
+
+    int remain = 0;
+    for (int i = 0; i < new_size-1; i++) {
+        const UCH other_byte = (i < other_size) ? v2[i] : 0;
+        const int sum = other_byte + v1[i] + remain;
+        v1[i] = sum % 10;
+        remain = sum / 10;
+    }
+
+    if (remain != 0)
+        v1[new_size-1] = remain;
+}
+
 namespace IAlg {
 namespace Number {
 
@@ -53,11 +76,26 @@ void Integer::copy(Integer& dest) {
     memcpy(&dest._bytes[0], &_bytes[0], sizeof(UCH) * size);
 }
 
-void Integer::base10(std::string& dest) {
-    Integer copied;
-    copy(copied);
+void Integer::shrink() {
+    int pos = size() - 1;   // Position of last nonzero byte.
+    while (_bytes[pos] == 0)
+        pos--;
 
+    _resize(pos+1);
+}
+
+void Integer::base10(std::string& dest) {
     dest.resize(0);
+
+    // std::vector<char> total = {0};
+    // std::vector<char> multiplier = {1};
+
+    // for (int i = 0; i < size(); i++) {
+    //     // Multiply the multiplier by 256 each iter.
+    //     std::vector<char> prev = multiplier;
+    //     for (int k = 0; k < 256; k++)
+    //         add_base10(multiplier, prev);
+    // }
 }
 
 UCH* Integer::bytes() {
@@ -68,9 +106,9 @@ int Integer::size() {
     return _bytes.size();
 }
 
-void Integer::set(const void* data, const int size) {
+void Integer::set(const void* data, const int size, const int offset) {
     _resize(size);
-    memcpy(&_bytes[0], data, size);
+    memcpy(&_bytes[offset], data, size);
 }
 
 void Integer::add(Integer& num) {
@@ -93,11 +131,7 @@ void Integer::add(Integer& num) {
 }
 
 void Integer::_resize(const int size) {
-    const int current = _bytes.size();
-
-    _bytes.resize(size);
-    if (current < size)
-        memset((void*)(&_bytes[0]+current), 0, size-current);
+    _bytes.resize(size, 0);
 }
 
 }  // namespace Number

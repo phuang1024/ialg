@@ -41,13 +41,19 @@ public:
 
     /**
      * Deepcopy this to destination.
-     * @param dest destination integer pointer.
+     * @param dest destination integer reference.
      */
     void copy(Integer& dest);
 
     /**
+     * Remove leading zero bytes. Reduces memory usage.
+     * Generally, call this often as most math methods leave extra bytes.
+     */
+    void shrink();
+
+    /**
      * Get the base 10 string representation.
-     * @param dest destination std::string pointer.
+     * @param dest destination std::string reference.
      */
     void base10(std::string& dest);
 
@@ -62,20 +68,18 @@ public:
     int size();
 
     /**
-     * Set byte array to data from data pointer for size bytes.
+     * Set byte array to data from data pointer for size bytes starting at offset.
      */
-    void set(const void* data, const int size);
+    void set(const void* data, const int size, const int offset = 0);
 
     /**
-     * Add a Number to this object.
+     * Add an Integer to this object.
      */
     void add(Integer& num);
 
 private:
     /**
-     * Resize internal byte array to at least this size.
-     * Fills new bytes with 0.
-     * Truncates existing bytes if shrinking.
+     * Shortcut for _bytes.resize(size)
      */
     void _resize(const int size);
 
